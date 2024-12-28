@@ -83,11 +83,11 @@ if [[ $# -eq 1 ]]; then
 else
     case $run_type in
     attached)
-        result=$(get_fzf_results | fzf-tmux \
+        result=$(get_fzf_results | fzf \
             --bind "$find_bind" --bind "$session_bind" --bind "$tab_bind" --bind "$window_bind" --bind "$t_bind" \
             --bind "$zoxide_bind" --bind "$kill_bind" --border-label "$border_label" --header "$header" \
             --no-sort --cycle --delimiter='/' --with-nth="$show_nth" --keep-right --prompt "$prompt" --marker "$marker" \
-            --preview "$preview" --preview-window="$preview_position",75% "$fzf_tmux_options" --layout="$layout")
+            --preview "$preview" --preview-window=top,75%)
         ;;
     detached)
         result=$(get_fzf_results | fzf \
